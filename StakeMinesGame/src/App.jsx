@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import './script.js'
 
 
 import './App.css'
 
 function App() {
-  const [hide,setHide]=useState(false)
+  var [hide,setHide]=useState(true)
   const hideIt=()=>{
     setHide(true)
   }
@@ -14,22 +15,32 @@ function App() {
   const [value, setValue] = useState('');
   const handleChange = (event) => {
     setValue(event.target.value);
+    
 };
+const unhideMainBox=()=>{
+  setHide(false);
+}
+
 
 
   return (
     <>
-     <input
+     <div className='stakeLogo'></div>
+     <div id='enterNumBox' className={` ${!hide ? "hidden" : ""} flex justify-between items-center w-full h-32 flex-col`}>
+      <h1 className='text-white text-4xl font-bold'>Enter The Number of Mines You Want.</h1>
+     <input className='bg-blue-600 h-10 rounded-lg border-white text-white text-center border-2 '
                 id="numberInput"
                 type="number"
                 value={value}
                 onChange={handleChange}
                 placeholder="Enter a number"
             />
-             <p className='text-white'>The number you entered is: {value}</p>
+            <button className='bg-white' onClick={unhideMainBox}>OK</button>
+     </div>
+             
     
-    <div className={`mainBox  flex flex-wrap gap-3 justify-between`}  id='mainBox'>
-    <div className={`smallBoxes ${hide ? "hidden" : ""} h-24 w-24 bg-blue-800 rounded-xl  `}onClick={()=>hideIt()} id="0"></div>
+    <div className={`mainBox ${hide ? "hidden" : ""}  flex flex-wrap gap-3 justify-between`}  id='mainBox'>
+    <div className={`smallBoxes  h-24 w-24 bg-blue-800 rounded-xl  `} id="0"></div>
     <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="1"></div>
 <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="2"></div>
 <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="3"></div>
