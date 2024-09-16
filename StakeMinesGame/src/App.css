@@ -1,10 +1,11 @@
-body{
+.body{
   background-color: #232f3e;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 700px;
   width: 100%;
+  flex-direction: column;
 }
 .mainBox{
   height: 550px;
@@ -30,6 +31,20 @@ body{
  #numberInput{
    
  }
+ .stakeLogo{
+    height: 200px;
+    width: 200px;
+    background-image: url(images/stake.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* margin-bottom: 300px; */
+    
+  }
+  .sideStakeLogo{
+    margin-right: 1300px;
+    
+    
+  }
 
 .hide{
   display: none;

@@ -13,33 +13,49 @@ function App() {
     setHide(false)
   }
   const [value, setValue] = useState('');
+  const [sideLogo, setSideLogo] = useState('');
+  
   const handleChange = (event) => {
+    
+    
     setValue(event.target.value);
+    console.log(value);
+    
+    
     
 };
 const unhideMainBox=()=>{
   setHide(false);
+}
+const sideStakeLogo=()=>{
+  setSideLogo(true);
 }
 
 
 
   return (
     <>
-     <div className='stakeLogo'></div>
-     <div id='enterNumBox' className={` ${!hide ? "hidden" : ""} flex justify-between items-center w-full h-32 flex-col`}>
-      <h1 className='text-white text-4xl font-bold'>Enter The Number of Mines You Want.</h1>
-     <input className='bg-blue-600 h-10 rounded-lg border-white text-white text-center border-2 '
+    <div className="body">
+    <div className={`stakeLogo ${sideLogo ? "sideStakeLogo":""}`}></div>
+    <h1 className='text-white text-5xl font-bold mb-6'>STAKE's Mine Game</h1>
+     <div id='enterNumBox' className={` ${!hide ? "hidden" : ""} flex justify-between items-center w-full h-32 flex-col  `}>
+      <h1 className='text-white text-3xl font-bold'>Enter The Number of Mines You Want.</h1>
+     <input className='bg-blue-600 h-10 rounded-lg border-white text-white text-center border-2  '
                 id="numberInput"
                 type="number"
                 value={value}
+                
                 onChange={handleChange}
                 placeholder="Enter a number"
             />
-            <button className='bg-white' onClick={unhideMainBox}>OK</button>
+            <button className='bg-blue-800 rounded-md h-8 w-14 border-white border-2 text-white' onClick={()=>{
+              unhideMainBox()
+              sideStakeLogo()
+            }} >OK</button> 
      </div>
              
     
-    <div className={`mainBox ${hide ? "hidden" : ""}  flex flex-wrap gap-3 justify-between`}  id='mainBox'>
+    <div className={`mainBox ${hide ? "hidden" : ""}  flex flex-wrap gap-3 justify-between mb-9`}  id='mainBox'>
     <div className={`smallBoxes  h-24 w-24 bg-blue-800 rounded-xl  `} id="0"></div>
     <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="1"></div>
 <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="2"></div>
@@ -66,6 +82,9 @@ const unhideMainBox=()=>{
 <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="23"></div>
 <div className='smallBoxes h-24 w-24 bg-blue-800 rounded-xl ' id="24"></div>
 </div>
+
+    </div>
+     
     
     
    
