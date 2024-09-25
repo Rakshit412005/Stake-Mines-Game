@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
-
+import MineImage from './images/Mine.png';
+import DiamondImage from './images/diamond.jpg';
 function App() {
   const [hide, setHide] = useState(true);
   const [value, setValue] = useState('');
@@ -108,9 +109,11 @@ function App() {
               className={`smallBoxes h-24 w-24 bg-blue-800 rounded-xl flex justify-center items-center`}
               onClick={() => handleBoxClick(index)}
             >
-              {clicked && (mines.includes(index) ? 
-                <img src="./images/Mine.png" alt="Mine" className="h-full w-full" /> : 
-                <img src="./images/diamond.jpg" alt="Diamond" className="h-full w-full" />)}
+              {clicked && (
+                mines.includes(index) ? 
+                <img src={MineImage} alt="Mine" className="h-full w-full" /> : 
+                <img src={DiamondImage} alt="Diamond" className="h-full w-full" />
+              )}
             </div>
           ))}
         </div>
