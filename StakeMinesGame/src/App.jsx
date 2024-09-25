@@ -109,8 +109,8 @@ function App() {
               onClick={() => handleBoxClick(index)}
             >
               {clicked && (mines.includes(index) ? 
-                <img src="./src/images/Mine.png" alt="Mine" className="h-full w-full" /> : 
-                <img src="./src/images/diamond.jpg" alt="Diamond" className="h-full w-full" />)}
+                <img src="./images/Mine.png" alt="Mine" className="h-full w-full" /> : 
+                <img src="./images/diamond.jpg" alt="Diamond" className="h-full w-full" />)}
             </div>
           ))}
         </div>
