@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import MineImage from './images/Mine.png';
 import DiamondImage from './images/diamond.jpg';
@@ -70,6 +70,23 @@ function App() {
     setProfit(0);
     setClickedBoxes(new Array(25).fill(false)); // Reset clicked boxes
   };
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+        if (betAmount !== 0 && value !== '' && value<'25') {
+          startGame(); // Trigger startGame if values are valid
+        } else {
+          alert("Please enter valid values for bet amount and number of mines.");
+        }
+      }
+    };
+  
+    window.addEventListener('keydown', handleKeyPress);
+  
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress); // Cleanup event listener
+    };
+  }, [betAmount, value]);
 
   return (
     <>
@@ -98,7 +115,15 @@ function App() {
           />
           <button
             className='bg-blue-800 rounded-md h-8 w-14 border-white border-2 text-white'
-            onClick={startGame}
+            onClick={()=>{
+              if(betAmount === 0 || value === '' || value>='25'){
+                console.log("enter values correctly");
+                alert("enter values correctly")
+              }else{
+                startGame()
+              }
+            }
+            }
           >OK</button>
         </div>
 
