@@ -94,7 +94,7 @@ function App() {
         <div className={`stakeLogo ${sideLogo ? "sideStakeLogo" : ""}`}></div>
         <h1 className='text-white text-5xl font-bold mb-6'>STAKE's Mine Games</h1>
         
-        <div id='enterNumBox' className={` ${!hide ? "hidden" : ""} flex justify-between items-center w-full h-32 flex-col  `}>
+        <div id='enterNumBox' className={` ${!hide ? "hidden" : ""} flex justify-between items-center w-full h-32 flex-col gap-3`}>
           <h1 className='text-white text-3xl font-bold'>Enter The Number of Mines You Want.</h1>
           <input 
             className='bg-blue-600 h-10 rounded-lg border-white text-white text-center border-2'
