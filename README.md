@@ -40,3 +40,5 @@ To run this project locally, follow these steps:
 cd StakeMinesGame
 npm install
 npm run dev
+
+And you are good to go :)
