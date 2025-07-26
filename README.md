@@ -41,4 +41,4 @@ cd StakeMinesGame
 npm install
 npm run dev
 
-And you are good to go :)
+And you are good to go !
